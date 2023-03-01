@@ -1,0 +1,65 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void union1(vector<int> arr,vector<int> brr){
+  vector<int> ans;
+  
+  for(int i=0;i<arr.size();i++){
+    int f=0;
+    for(int k=0;k<ans.size();k++){
+      if(arr[i]==ans[k]){
+        f=1;
+        break;
+      }
+    }
+    if(f==0){
+      ans.push_back(arr[i]);
+      }
+  }
+  for(int j=0;j<brr.size();j++){
+    int f=0;
+    for(int k=0;k<ans.size();k++){
+      if(brr[j]==ans[k]){
+        f=1;
+        break;
+      }
+    }
+    if(f==0){
+      ans.push_back(brr[j]);
+    }
+    
+  }
+  
+  cout<<"\n Union elements:";
+  for(int i=0;i<ans.size();i++){
+    cout<<ans[i]<<" ";
+  }
+
+}
+int main() {
+int n;
+cout<<"Enter size ";
+cin>>n;
+  vector<int> arr(n); 
+  vector<int> brr(n);
+  
+  cout<<"Enter elements of 1st vector";
+  for(int i=0;i<arr.size();i++){
+      cin>>arr[i];
+  }
+  cout<<"\nEnter elements of 2nd vector:";
+  for(int i=0;i<brr.size();i++){
+      cin>>brr[i];
+  }
+  cout<<"\n First vector:";
+  for(int i=0;i<brr.size();i++){
+      cout<<arr[i]<<" ";
+  }
+  cout<<"\n Second vector:";
+  for(int i=0;i<brr.size();i++){
+      cout<<brr[i]<<" ";
+  }
+  union1(arr,brr);
+  return 0;
+  }
